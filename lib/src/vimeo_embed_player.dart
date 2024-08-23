@@ -55,17 +55,13 @@ class VimeoEmbedPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final url = URLRequest(url: Uri.parse(_vimeoPlayer(vimeoId)));
+    final url = URLRequest(url: WebUri(_vimeoPlayer(vimeoId)));
 
     return InAppWebView(
-      initialOptions: InAppWebViewGroupOptions(
-        crossPlatform: InAppWebViewOptions(
-          useShouldOverrideUrlLoading: true,
-          mediaPlaybackRequiresUserGesture: false,
-        ),
-        ios: IOSInAppWebViewOptions(
-          allowsInlineMediaPlayback: true,
-        ),
+      initialSettings: InAppWebViewSettings(
+        useShouldOverrideUrlLoading: true,
+        mediaPlaybackRequiresUserGesture: false,
+        allowsInlineMediaPlayback: true,
       ),
       initialUrlRequest: url,
       shouldOverrideUrlLoading: shouldOverrideUrlLoading,
