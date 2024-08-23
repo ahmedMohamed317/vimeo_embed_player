@@ -23,13 +23,13 @@ VimeoEmbedPlayer(
 );
 ```
 
-### Required parameters of VimeoVideoPlayer
+### Required parameters of VimeoEmbedPlayer
 ------------
 | Parameter      | Description                 |
 |----------------|-----------------------------|
 | String vimeoId | the id of valid vimeo video |
 
-### Optional parameters of VimeoVideoPlayer
+### Optional parameters of VimeoEmbedPlayer
 ------------
 | Parameter   | Description                                                                                     |
 |-------------|-------------------------------------------------------------------------------------------------|
