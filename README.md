@@ -4,7 +4,7 @@ A Flutter package that provides an easy way to embed and play Vimeo videos withi
 
 ## Getting started
 
-Embed Vimeo Videos: Easily embed Vimeo videos within your Flutter web app using a simple and straightforward API.
+Embed Vimeo Videos: Easily embed Vimeo videos within your Flutter app.
 MIT Licensed: Open-source and free to use in both personal and commercial projects.
 
 ## Preview
