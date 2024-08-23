@@ -9,8 +9,10 @@ MIT Licensed: Open-source and free to use in both personal and commercial projec
 
 ## Preview
 
-![vimeo_embed_player](https://github.com/Olosss/vimeo_embed_player/blob/main/assets/player.png)
-![vimeo_embed_player](https://github.com/Olosss/vimeo_embed_player/blob/main/assets/playerActions.png)
+<div style="display: flex; flex-direction: row; gap: 10px;">
+  <img src="https://github.com/Olosss/vimeo_embed_player/blob/main/assets/player.png" alt="vimeo_embed_player" width="300"/>
+  <img src="https://github.com/Olosss/vimeo_embed_player/blob/main/assets/playerActions.png" alt="vimeo_embed_player_actions" width="300"/>
+</div>
 
 ## Usage
 
