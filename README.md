@@ -9,8 +9,8 @@ MIT Licensed: Open-source and free to use in both personal and commercial projec
 
 ## Preview
 
-![vimeo_embed_player](https://github.com/Olosss/vimeo_embed_player/blob/main/assets/player.png)
-![vimeo_embed_player_actions](https://github.com/Olosss/vimeo_embed_player/blob/main/assets/playerActions.png)
+![vimeo_embed_player](https://github.com/Olosss/vimeo_embed_player/blob/main/assets/player.png?raw=true)
+![vimeo_embed_player_actions](https://github.com/Olosss/vimeo_embed_player/blob/main/assets/playerActions.png?raw=true)
 
 ## Usage
 
@@ -19,6 +19,8 @@ Import it to your project file
 ```dart
 import 'package:vimeo_embed_player/vimeo_embed_player.dart';
 ```
+
+Use it in its simplest form, as follows:
 
 ```dart
 VimeoEmbedPlayer(
