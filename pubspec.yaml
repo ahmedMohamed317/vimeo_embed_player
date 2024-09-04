@@ -1,6 +1,6 @@
 name: vimeo_embed_player
 description: "A Flutter package that provides an easy way to embed and play Vimeo videos within a WebView."
-version: 1.0.1
+version: 1.0.2
 repository: https://github.com/Olosss/vimeo_embed_player
 issue_tracker: https://github.com/Olosss/vimeo_embed_player/issues
 homepage: https://github.com/Olosss/vimeo_embed_player
