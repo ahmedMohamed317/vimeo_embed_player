@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
       home: AspectRatio(
         aspectRatio: 16.0 / 9.0,
         child: VimeoEmbedPlayer(
-          vimeoId: '397912933',
+          vimeoId: '784081477',
           autoPlay: true,
+            authToken:"ba1f80c3c84fd5409c7e68f612ce8322"
+
         ),
       ),
     );

@@ -24,7 +24,8 @@ Use it in its simplest form, as follows:
 
 ```dart
 VimeoEmbedPlayer(
-  vimeoId: '397912933',
+  vimeoId: '784081477',
+  authToken:"ba1f80c3c84fd5409c7e68f612ce8322"
 );
 ```
 

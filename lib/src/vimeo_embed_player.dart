@@ -4,60 +4,35 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-/// A widget that embeds a Vimeo video player in a Flutter app.
-///
-/// The `VimeoEmbedPlayer` widget uses the Vimeo video ID to load and display
-/// a video from Vimeo. It also provides an option to start the video automatically
-/// when the widget is built.
-///
-/// Example usage:
-///
-/// ```dart
-/// VimeoEmbedPlayer(
-///   vimeoId: '397912933',
-///   autoPlay: true,
-/// )
-/// ```
-///
 class VimeoEmbedPlayer extends StatelessWidget {
-  /// Creates a [VimeoEmbedPlayer] widget.
-  ///
-  /// The [vimeoId] parameter is required and must be provided. It specifies the
-  /// ID of the Vimeo video to be embedded. The [autoPlay] parameter is optional
-  /// and defaults to `false`. If set to `true`, the video will start playing
-  /// automatically when the widget is loaded.
-  ///
-  /// Example:
-  ///
-  /// ```dart
-  /// VimeoEmbedPlayer(
-  ///   vimeoId: '397912933',
-  ///   autoPlay: true,
-  /// )
-  /// ```
-  ///
-
   const VimeoEmbedPlayer({
     super.key,
     required this.vimeoId,
     this.autoPlay = false,
+    required this.authToken, // Add token as a required parameter
+
   });
 
-  /// The Vimeo video ID to be embedded in the player.
-  ///
-  /// This is a required parameter. It should be a valid Vimeo video ID.
   final String vimeoId;
-
-  /// Whether to automatically start playing the video.
-  ///
-  /// Defaults to `false`.
   final bool autoPlay;
+  final String authToken; // Bearer token for authentication
 
   @override
   Widget build(BuildContext context) {
-    final url = URLRequest(url: Uri.parse(_vimeoPlayer(vimeoId)));
+    final url = URLRequest(
+      url: Uri.parse(_vimeoPlayer(vimeoId)),
+      headers: {
+        // Add Bearer token to the headers
+        HttpHeaders.authorizationHeader: 'Bearer $authToken',
+      },
+    );
 
     return InAppWebView(
+      // initialSettings: InAppWebViewSettings(
+      //   useShouldOverrideUrlLoading: true,
+      //   mediaPlaybackRequiresUserGesture: false,
+      //   allowsInlineMediaPlayback: true,
+      // ),
       initialUrlRequest: url,
       shouldOverrideUrlLoading: shouldOverrideUrlLoading,
     );
@@ -90,14 +65,14 @@ class VimeoEmbedPlayer extends StatelessWidget {
             </html>
             ''';
     final String contentBase64 =
-        base64Encode(const Utf8Encoder().convert(html));
+    base64Encode(const Utf8Encoder().convert(html));
     return 'data:text/html;base64,$contentBase64';
   }
 
   Future<NavigationActionPolicy?> shouldOverrideUrlLoading(
-    InAppWebViewController controller,
-    NavigationAction navigationAction,
-  ) async {
+      InAppWebViewController controller,
+      NavigationAction navigationAction,
+      ) async {
     if (Platform.isIOS) {
       if (navigationAction.request.url?.toString() == "https://vimeo.com/") {
         return NavigationActionPolicy.CANCEL;
@@ -113,6 +88,8 @@ class VimeoEmbedPlayer extends StatelessWidget {
   }
 
   String getPath() {
-    return "https://player.vimeo.com/video/$vimeoId?autoplay=$autoPlay&loop=1&pip=0";
+    return "https://player.vimeo.com/video/$vimeoId?h=f9892c138b&autoplay=$autoPlay&loop=1&pip=0";
+    // return "https://player.vimeo.com/video/$vimeoId?autoplay=$autoPlay&loop=1&pip=0h=f9892c138b";
+
   }
 }
